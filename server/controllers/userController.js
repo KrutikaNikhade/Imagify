@@ -51,7 +51,8 @@ try{
      return res({success:false, message:" Invalid credentials"})
    }
 
-}catch(error){
-
-}
-}
+  } catch (error) {
+       console.log(error)
+       res.json({success: false, message:error.message})
+      }
+  }
