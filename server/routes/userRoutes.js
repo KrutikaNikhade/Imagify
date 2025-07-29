@@ -10,7 +10,4 @@ userRouter.post("/login", loginUser);
 userRouter.post("/credits", userAuth,userCredits);
 
 
-
-
 export default userRouter;
-
