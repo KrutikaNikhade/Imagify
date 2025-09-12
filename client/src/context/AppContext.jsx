@@ -36,7 +36,7 @@ const AppContextProvider = (props) => {
     try {
       const { data } = await axios.post(
         backendUrl + "/api/image/generate-image",
-        { prompt },
+        { userId: user?._id, prompt },
         { headers: { token } }
       );
 
