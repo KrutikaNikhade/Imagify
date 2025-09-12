@@ -21,12 +21,17 @@ const registerUser = async (req, res) => {
     const userData = { name, email, password: hashedPassword };
     const newUser = new userModel(userData);
     const user = await newUser.save();
+    
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     
     res.json({
       success: true, 
       token, 
-      user: { name: user.name }
+      user: { 
+          _id: user._id,  
+        name: user.name,
+       // email: user.email,
+      }
     });
 
   } catch (error) {
@@ -57,7 +62,7 @@ const loginUser = async (req, res) => {
       res.json({
         success: true, 
         token, 
-        user: { name: user.name, email: user.email }
+        user: { _id: user._id,  name: user.name, email: user.email }
       });
     } else {
       return res.json({ success: false, message: "Invalid credentials" });
@@ -75,7 +80,10 @@ const userCredits = async (req, res) => {
     res.json({
       success: true, 
       credits: user.creditBalance, 
-      user: { name: user.name }
+      user: { 
+         _id: user._id,
+        name: user.name 
+      }
     });
   } catch (error) {
     console.log(error.message);
