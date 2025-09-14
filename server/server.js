@@ -10,7 +10,15 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+const allowedOrigin = process.env.CLIENT_URL || "http://localhost:5173";
+
+app.use(cors({
+  origin: allowedOrigin,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "token"]
+}));
+
 
 // Connect to MongoDB
 await connectDB();
