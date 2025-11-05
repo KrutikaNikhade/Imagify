@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import Footer from "./components/Footer";
 import Login from "./components/Login";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import { AppContext } from "./context/AppContext";
 import BuyCredit from "./pages/BuyCredit";
 import Home from "./pages/Home";
