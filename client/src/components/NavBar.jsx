@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 
-const Navbar = () => {
+const NavBar = () => {
   const { user, setShowLogin, logout, credit } = useContext(AppContext);
   const navigate = useNavigate();
 
